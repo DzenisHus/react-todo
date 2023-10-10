@@ -4,6 +4,7 @@ import Column from "../Column/Column";
 interface BoardProps {
   columns: {
     id: string;
+    type: string;
     title: string;
     taskIds: string[];
   }[];
@@ -13,7 +14,13 @@ interface BoardProps {
     status: string;
   }[];
 
-  onEditTask: (id: string, title: string, status: string) => void;
+  onEditTask: (
+    id: string,
+    title: string,
+    status: string,
+    closestTask: object,
+    overlayPosition: string
+  ) => void;
 }
 
 const Board: React.FC<BoardProps> = ({ columns, tasks, onEditTask }) => {
@@ -21,10 +28,10 @@ const Board: React.FC<BoardProps> = ({ columns, tasks, onEditTask }) => {
     <div className="board flex justify-between h-full">
       {columns.map((column) => (
         <Column
-            key={column.id}
-            column={column}
-            tasks={tasks}
-            onEditTask={onEditTask}
+          key={column.id}
+          column={column}
+          tasks={tasks}
+          onEditTask={onEditTask}
         />
       ))}
     </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import { useDrag } from "react-dnd";
 
 interface ModalProps {
   isOpen: boolean;
@@ -33,10 +34,27 @@ interface TaskProps {
     status: string;
   };
 
-  onEditTask: (id: string, title: string, status: string) => void;
+  onEditTask: (
+    id: string,
+    title: string,
+    status: string,
+    closestTask: object,
+    overlayPosition: string
+  ) => void;
 }
 
 const Task: React.FC<TaskProps> = ({ task, onEditTask }) => {
+  const [{ isDragging }, drag] = useDrag(
+    () => ({
+      type: "CARD",
+      item: task,
+      collect: (monitor) => ({
+        isDragging: !!monitor.isDragging(),
+      }),
+    }),
+    []
+  );
+
   const [title, setTitle] = useState(task.title);
   const [status, setStatus] = useState(task.status);
 
@@ -52,7 +70,7 @@ const Task: React.FC<TaskProps> = ({ task, onEditTask }) => {
   };
 
   const handleSaveClick = () => {
-    onEditTask(task.id, title, status);
+    onEditTask(task.id, title, status, {}, "");
     setIsModalOpen(false);
   };
 
@@ -70,15 +88,20 @@ const Task: React.FC<TaskProps> = ({ task, onEditTask }) => {
         <h2>Modal Content</h2>
         <input type="text" value={title} onChange={handleTitleChange} />
         <select value={status} onChange={handleStatusChange}>
-          <option value="To Do">To Do</option>
-          <option value="In Progress">In Progress</option>
-          <option value="Done">Done</option>
+          <option value="to-do">To Do</option>
+          <option value="in-progress">In Progress</option>
+          <option value="done">Done</option>
         </select>
         <button onClick={handleSaveClick}>Save</button>
         <button onClick={handleCloseModal}>Cancel</button>
       </Modal>
 
-      <div className="task" data-task-id={task.id}>
+      <div
+        className="task"
+        data-task-id={task.id}
+        ref={drag}
+        style={{ opacity: isDragging ? 0.5 : 1 }}
+      >
         <div className="task-title">{task.title}</div>
         <div className="task-status">{task.status}</div>
         <button onClick={handleOpenModal}>Edit</button>
