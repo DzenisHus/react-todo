@@ -25,3 +25,11 @@ This project is a Kanban board application built using React. It provides an int
 - **tailwindcss:** This package introduces a utility-first CSS framework, offering a comprehensive set of pre-defined CSS classes that can be readily applied to style components. It streamlines the styling process and promotes a consistent UI design.
 
 - **webpack:** This package acts as a robust module bundler, responsible for packaging the project's JavaScript and CSS files into a single, optimized file ready for deployment. It enhances performance and resource loading efficiency.
+
+### TailwindCSS Watch Command:
+
+To start the TailwindCSS watch logic, you can use the following command:
+
+```bash
+npx tailwindcss -i ./src/input.css -o ./public/output.css --watch
+```
