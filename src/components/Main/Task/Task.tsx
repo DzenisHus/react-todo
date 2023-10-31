@@ -97,7 +97,7 @@ const Task: React.FC<TaskProps> = ({ task, onEditTask }) => {
       </Modal>
 
       <div
-        className="task"
+        className="task bg-zinc-900 p-4 text-neutral-100 rounded-md cursor-pointer"
         data-task-id={task.id}
         ref={drag}
         style={{ opacity: isDragging ? 0.5 : 1 }}

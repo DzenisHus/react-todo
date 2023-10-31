@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Board from "./Board/Board";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { dataTasks } from "../../Data/data-tasks.json";
-import { dataColumns } from "../../Data/data-columns.json";
+import dataTasks from "../../Data/data-tasks.json";
+import dataColumns from "../../Data/data-columns.json";
 
 export interface Task {
   id: string;
@@ -32,7 +32,7 @@ const Main: React.FC = () => {
     overlayPosition: string
   ) => {
     setTasks((prevTasks) => {
-      let updatedTasks = prevTasks.map((task) => {
+      const updatedTasks = prevTasks.map((task) => {
         if (task.id === id) {
           return {
             ...task,
@@ -43,31 +43,30 @@ const Main: React.FC = () => {
         return task;
       });
 
-      console.log(updatedTasks, "updatedTasks");
-
       // return updatedTasks if don't need to move the task;
       if (!closestTask) return updatedTasks;
 
       const currentIndex = prevTasks.findIndex((task) => task.id === id);
       const closestIndex = prevTasks.findIndex(
-        (task) => task.id === closestTask.id
+        (task) => task.id === closestTask
       );
 
       const [currentTask] = updatedTasks.splice(currentIndex, 1); // Remove the item from the original position
-
       if (overlayPosition === "top") {
-        updatedTasks.splice(closestIndex - 1, 0, currentTask);
+        if (closestIndex === 0 || closestIndex === -1) {
+          updatedTasks.splice(0, 0, currentTask);
+        } else {
+          updatedTasks.splice(closestIndex - 1, 0, currentTask);
+        }
       } else {
         updatedTasks.splice(closestIndex + 1, 0, currentTask);
       }
-
       return updatedTasks;
     });
   };
 
   return (
-    <main className="flex flex-col container mx-auto p-4 h-full">
-      <h2 className="text-xl font-bold mb-4">Main Content</h2>
+    <main className="flex flex-col mx-auto p-4 h-full w-full">
       <DndProvider backend={HTML5Backend}>
         <Board
           columns={columnsDefault}

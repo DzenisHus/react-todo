@@ -1,5 +1,6 @@
 import React from "react";
 import { useDrop } from "react-dnd";
+import "./../overlay.scss";
 
 interface ColumnProps {
   column: {
@@ -31,10 +32,10 @@ const Column: React.FC<ColumnProps> = ({
   onEditTask,
   overlayPosition,
 }) => {
-  const [{ canDrop, isOver }, drop] = useDrop(
+  const [{ isOver }, drop] = useDrop(
     () => ({
       accept: "CARD",
-      drop: (item: { id: string; title: string }, monitor) => {
+      drop: (item: { id: string; title: string }) => {
         onEditTask(item.id, item.title, column.type, task.id, overlayPosition);
       },
       collect: (monitor) => ({
@@ -49,8 +50,12 @@ const Column: React.FC<ColumnProps> = ({
     <div
       ref={drop}
       data-overlay-position={overlayPosition}
-      className={`h-24 w-100 ${isOver ? "bg-red-500" : "bg-white"}`}
-    ></div>
+      className={`h-24 w-100 overlay ${overlayPosition} ${
+        isOver ? "hover-overlay" : ""
+      }`}
+    >
+      <div className="overlay-wrapper"></div>
+    </div>
   );
 };
 

@@ -20,3 +20,7 @@ body,
 footer {
   margin-top: auto;
 }
+
+body {
+  background-color: rgb(39 39 42);
+}

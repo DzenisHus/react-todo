@@ -25,7 +25,7 @@ interface BoardProps {
 
 const Board: React.FC<BoardProps> = ({ columns, tasks, onEditTask }) => {
   return (
-    <div className="board flex justify-between h-full">
+    <div className="board flex flex-row gap-4 justify-between h-full overflow-auto">
       {columns.map((column) => (
         <Column
           key={column.id}

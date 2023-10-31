@@ -1,46 +1,27 @@
-# Getting Started with Create React App
+## Project Name: my-kanban-board
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Version:** 1.0.0
 
-## Available Scripts
+**Description:**
 
-In the project directory, you can run:
+This project is a Kanban board application built using React. It provides an intuitive interface for managing tasks and workflows, helping teams organize their work efficiently.
 
-### `npm start`
+**Author:** Dzenis Husachok
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Keywords:** kanban, board, react
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Additional Modules:
 
-### `npm test`
+- **@typescript-eslint/eslint-plugin and @typescript-eslint/parser:** These packages provide ESLint plugins and parsers specifically tailored for TypeScript code. They ensure code quality and adherence to coding standards in a TypeScript environment.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **eslint-config-prettier and eslint-plugin-prettier:** These packages work in tandem to configure ESLint to seamlessly integrate with Prettier, a powerful code formatter. This combination ensures consistent and aesthetically pleasing code.
 
-### `npm run build`
+- **eslint-plugin-react:** This package equips ESLint with plugins designed to analyze and improve React code. It enforces best practices and helps maintain high-quality React applications.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **prettier:** This package is a versatile code formatter that automates the process of code styling. It ensures uniformity in code presentation across the entire project.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **sass:** This package serves as a CSS preprocessor, enabling the use of variables, mixins, and other advanced features in CSS. It enhances the maintainability and modularity of stylesheets.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **tailwindcss:** This package introduces a utility-first CSS framework, offering a comprehensive set of pre-defined CSS classes that can be readily applied to style components. It streamlines the styling process and promotes a consistent UI design.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **webpack:** This package acts as a robust module bundler, responsible for packaging the project's JavaScript and CSS files into a single, optimized file ready for deployment. It enhances performance and resource loading efficiency.
