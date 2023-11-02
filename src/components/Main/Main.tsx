@@ -4,6 +4,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import dataTasks from "../../Data/data-tasks.json";
 import dataColumns from "../../Data/data-columns.json";
+import "./../global.scss";
 
 export interface Task {
   id: string;

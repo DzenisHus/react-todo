@@ -24,3 +24,27 @@ footer {
 body {
   background-color: rgb(39 39 42);
 }
+
+select,
+input {
+  @apply border rounded mb-2 py-2 px-4 text-zinc-800;
+}
+
+select {
+  cursor: pointer;
+}
+
+.primary {
+  @apply bg-zinc-700 text-white py-2 px-4 rounded border border-zinc-100 hover:bg-zinc-800 transition-all;
+}
+
+.task {
+  position: relative;
+}
+
+.close-icon,
+.task button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
