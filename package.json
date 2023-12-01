@@ -2,6 +2,7 @@
   "name": "my-kanban-board",
   "version": "1.0.0",
   "description": "A Kanban board built with React",
+  "homepage": "https://dzenishus.github.io/react-todo/",
   "main": "index.js",
   "private": true,
   "keywords": [
@@ -38,7 +39,9 @@
     "eject": "react-scripts eject",
     "lint": "eslint ./src/**/*.{ts,tsx}",
     "lint:fix": "eslint ./src/**/*.{ts,tsx} --fix .",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -64,6 +67,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.2",
+    "gh-pages": "^6.1.0",
     "postcss-import": "^15.1.0",
     "prettier": "3.0.3",
     "sass": "^1.69.4",
