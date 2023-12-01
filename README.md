@@ -1,6 +1,6 @@
 ## Project Name: My kanban board (Drag&Drop)
 
-**Version:** 1.0.0
+Link to [Demo](https://dzenishus.github.io/react-todo/)
 
 **Description:**
 
